@@ -1,15 +1,13 @@
 
 import type { Metadata } from "next";
-import { Inter, Indie_Flower, Roboto_Mono } from "next/font/google";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import "./custom.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from '@/components/Menu';
 import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ["latin"] });
-const indieFlower = Indie_Flower({ weight: "400", subsets: ["latin"], variable: "--font-indie-flower" });
-const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-roboto-mono" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${indieFlower.variable} ${robotoMono.variable}`}>
+      <body className={inter.className}>
         <Menu />
         {children}
         <Footer />
