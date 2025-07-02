@@ -1,0 +1,19 @@
+
+import { Article } from './data';
+
+export const ArchivedArticles: Article[] = [
+  {
+    "name": "Share A Dream founder Shay Kinsella will be remembered ",
+    "content": "Share A Dream Foundation founder Shay Kinsella was remembered at his funeral mass as a “dream maker” who helped thousands of vulnerable children........",
+    "link": "https://www.irishmirror.ie/news/irish-news/shay-kinsella-share-a-dream-22437392",
+    "date": "29th July 2020",
+    "provider": "The Mirror"
+  },
+  {
+    "name": "Preserving Childhood Cancer Care Amid a Pandemic",
+    "content": "A survey in 19 countries shows that coordination and messaging at the national level is essential to maintain critical cancer treatment, an expert says.........",
+    "link": "https://www.usnews.com/news/best-countries/articles/2020-08-04/study-coronavirus-response-delayed-some-childhood-cancer-treatments",
+    "date": "4th Aug 2020",
+    "provider": "USNews"
+  }
+];
