@@ -1,21 +1,17 @@
-import { prisma } from '@/lib/prisma';
+'use client';
 
-async function getFirstArticle() {
-  const article = await prisma.article.findFirst();
-  return article;
-}
+import React from "react";
+import { Articles } from "./data";
 
-export async function FirstArticle() {
-  const article = await getFirstArticle();
+export const FirstArticle = ({ article }) => {
+    if (!article) {
+        return null;
+    }
 
-  if (!article) {
-    return null;
-  }
-
-  return (
-    <>
-      <div className="card-text" ><h3 className="news-header" style={{fontFamily:"Roboto Mono"}}>{article.name} </h3></div>
-      <div className="card-text mb-3"><span >{article.content}</span></div>
-    </>
-  );
-}
+    return (
+        <>
+            <div className="card-text" ><h3 className="news-header" style={{fontFamily:"Roboto Mono"}}>{article.name} </h3></div>
+            <div className="card-text mb-3"><span >{article.content}</span></div>
+        </>
+    );
+};

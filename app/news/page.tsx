@@ -1,11 +1,14 @@
 import { prisma } from '@/lib/prisma';
 import Intro from '@/app/home/Intro';
 import { Items } from '@/app/news/Articles';
-import TwitterContainer from '@/app/about/Twitter';
 import { Container, Row, Col } from 'reactstrap';
 
 async function getArticles() {
-  const articles = await prisma.article.findMany();
+  const articles = await prisma.article.findMany({
+    orderBy: {
+      date: 'desc',
+    },
+  });
   return articles;
 }
 
@@ -22,11 +25,8 @@ export default async function NewsPage() {
           </Col>
         </Row>
         <Row>
-          <Col md="8">
+          <Col>
             <Items articles={articles} />
-          </Col>
-          <Col md="4">
-            <TwitterContainer />
           </Col>
         </Row>
       </Container>

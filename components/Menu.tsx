@@ -13,9 +13,11 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import { useSession, signOut } from 'next-auth/react';
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession();
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -58,6 +60,17 @@ const Menu = () => {
                 <NavLink title="Some more information about us">About</NavLink>
               </Link>
             </NavItem>
+            {session ? (
+              <NavItem>
+                <NavLink href="#" onClick={() => signOut()} title="Sign out of the application">Sign Out</NavLink>
+              </NavItem>
+            ) : (
+              <NavItem>
+                <Link href="/auth/signin" passHref legacyBehavior>
+                  <NavLink title="Sign in to the application">Sign In</NavLink>
+                </Link>
+              </NavItem>
+            )}
           </Nav>
         </Collapse>
       </Navbar>

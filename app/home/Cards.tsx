@@ -15,7 +15,16 @@ import {
 import { FirstArticle } from '@/app/news/FirstArticle';
 
 
-const CardSection = () => {
+import prisma from '@/lib/prisma';
+
+const CardSection = async () => {
+    const articles = await prisma.article.findMany({
+        orderBy: {
+            date: 'desc',
+        },
+        take: 1,
+    });
+    const firstArticle = articles[0];
     return (
         <section>
             <Container className="mb-4">
@@ -57,7 +66,7 @@ const CardSection = () => {
                             <CardHeader><h2>News & Events</h2></CardHeader>
                             <Image src="/assets/img/events.png" alt="Colourful chalk pieces" className="img-fluid rounded" width={500} height={500} />
                             <CardBody>
-                                <FirstArticle/>
+                                <FirstArticle article={firstArticle}/>
                                 <Link href="/news" passHref legacyBehavior>
                                     <a title="Find out the latest news on Childhood Cancer" className="btn" style={{ textAlign: "left" }} role="button">Browse News</a>
                                 </Link>
