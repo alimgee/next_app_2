@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from '@/components/Menu';
 import Footer from '@/components/Footer';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import Providers from '../app/providers'; // Import the new Providers component
 
 const inter = Inter({ subsets: ["latin"] });
