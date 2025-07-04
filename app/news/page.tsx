@@ -1,36 +1,35 @@
-
-'use client';
-
-import React from 'react';
-import {
-    Container,
-    Row,
-    Col,
-} from 'reactstrap';
+import { prisma } from '@/lib/prisma';
 import Intro from '@/app/home/Intro';
 import { Items } from '@/app/news/Articles';
 import TwitterContainer from '@/app/about/Twitter';
+import { Container, Row, Col } from 'reactstrap';
 
-export default function NewsPage() {
+async function getArticles() {
+  const articles = await prisma.article.findMany();
+  return articles;
+}
 
-    return (
-        <main>
-            <Intro />
-            <Container>
-                <Row>
-                    <Col>
-                        <h2>News & Events </h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md="8">
-                        <Items />
-                    </Col>
-                    <Col md="4">
-                        <TwitterContainer />
-                    </Col>
-                </Row>
-            </Container>
-        </main>
-    );
-};
+export default async function NewsPage() {
+  const articles = await getArticles();
+
+  return (
+    <main>
+      <Intro />
+      <Container>
+        <Row>
+          <Col>
+            <h2>News & Events </h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col md="8">
+            <Items articles={articles} />
+          </Col>
+          <Col md="4">
+            <TwitterContainer />
+          </Col>
+        </Row>
+      </Container>
+    </main>
+  );
+}

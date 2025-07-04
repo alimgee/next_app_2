@@ -1,13 +1,4 @@
-
-export interface Article {
-  name: string;
-  content: string;
-  link: string;
-  date: string;
-  provider: string;
-}
-
-export const Articles: Article[] = [
+[
   {
     "name": "‘To look at your own child and know they are going to die is utterly indescribable’",
     "content": "Yavanna Keogh in one of a series of powerful blogs as she and her husband, Lar, watched cancer consume their son, Oscar.............",
@@ -29,4 +20,4 @@ export const Articles: Article[] = [
     "date": "4th Jan 2022",
     "provider": "Irish Examiner"
   }
-];
+]

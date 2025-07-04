@@ -1,7 +1,4 @@
-
-import { Article } from './data';
-
-export const ArchivedArticles: Article[] = [
+[
   {
     "name": "Share A Dream founder Shay Kinsella will be remembered ",
     "content": "Share A Dream Foundation founder Shay Kinsella was remembered at his funeral mass as a “dream maker” who helped thousands of vulnerable children........",
@@ -16,4 +13,4 @@ export const ArchivedArticles: Article[] = [
     "date": "4th Aug 2020",
     "provider": "USNews"
   }
-];
+]
