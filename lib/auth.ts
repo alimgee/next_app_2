@@ -28,6 +28,12 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         // Add your authentication logic here
         // For now, using environment variables for admin auth
+        console.log('Auth attempt - Environment check:', {
+          hasAdminUsername: !!process.env.ADMIN_USERNAME,
+          hasAdminPassword: !!process.env.ADMIN_PASSWORD,
+          nodeEnv: process.env.NODE_ENV
+        });
+        
         if (
           credentials?.username === process.env.ADMIN_USERNAME &&
           credentials?.password === process.env.ADMIN_PASSWORD
