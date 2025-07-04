@@ -28,9 +28,13 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         // Add your authentication logic here
         // For now, using environment variables for admin auth
-        console.log('Auth attempt - Environment check:', {
-          hasAdminUsername: !!process.env.ADMIN_USERNAME,
-          hasAdminPassword: !!process.env.ADMIN_PASSWORD,
+        console.log('Auth attempt - Detailed comparison:', {
+          providedUsername: credentials?.username,
+          expectedUsername: process.env.ADMIN_USERNAME,
+          usernameMatch: credentials?.username === process.env.ADMIN_USERNAME,
+          hasProvidedPassword: !!credentials?.password,
+          hasExpectedPassword: !!process.env.ADMIN_PASSWORD,
+          passwordMatch: credentials?.password === process.env.ADMIN_PASSWORD,
           nodeEnv: process.env.NODE_ENV
         });
         
@@ -38,12 +42,14 @@ export const authOptions: NextAuthOptions = {
           credentials?.username === process.env.ADMIN_USERNAME &&
           credentials?.password === process.env.ADMIN_PASSWORD
         ) {
+          console.log('Authentication successful');
           return {
             id: '1',
             name: 'Admin',
             email: 'admin@example.com',
           };
         }
+        console.log('Authentication failed');
         return null;
       },
     }),
