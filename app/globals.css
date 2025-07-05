@@ -475,3 +475,38 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* Button overrides for white text */
+.btn {
+  --bs-btn-color: white !important;
+  --bs-btn-hover-color: #b1225a !important;
+  color: white !important;
+  background-color: #b1225a !important;
+  font-weight: bold;
+  border-color: #b1225a !important;
+  border-radius: .75rem;
+}
+
+.btn:hover {
+  color: #b1225a !important;
+  background-color: black !important;
+  font-weight: bolder;
+  font-size: 1.1rem;
+}
+
+.btn-secondary {
+  --bs-btn-color: white !important;
+  --bs-btn-hover-color: #b1225a !important;
+  color: white !important;
+  background-color: #b1225a !important;
+  font-weight: bold;
+  border-color: #b1225a !important;
+  border-radius: .75rem;
+}
+
+.btn-secondary:hover {
+  color: #b1225a !important;
+  background-color: black !important;
+  font-weight: bolder;
+  font-size: 1.1rem;
+}

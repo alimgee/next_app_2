@@ -1,10 +1,14 @@
 
-'use client';
-
 import React from 'react';
+import { Metadata } from 'next';
 import { Container, Row, Col } from 'reactstrap';
 import Intro from '@/app/home/Intro';
 import TwitterContainer from '@/app/about/Twitter';
+
+export const metadata: Metadata = {
+  title: "About Us - Molly Rose",
+  description: "Learn about the Molly Rose Foundation, our mission to drive awareness of childhood cancer, and how we support families affected by childhood cancer.",
+};
 
 export default function AboutPage() {
     return (

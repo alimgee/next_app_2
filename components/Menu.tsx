@@ -23,13 +23,13 @@ const Menu = () => {
 
   return (
     <div>
-      <Navbar light expand="md">
+      <Navbar light expand="md" className="justify-content-between">
         <NavbarBrand href="/">MollyRose.ie</NavbarBrand>
         <NavbarText className="d-none d-lg-block">Lets talk about Childhood Cancer</NavbarText>
         <NavbarToggler onClick={toggle} />
 
         <Collapse isOpen={isOpen} navbar className="animate">
-          <Nav className="ml-auto" navbar>
+          <Nav className="ms-auto" navbar>
             <NavItem>
               <Link href="/" passHref legacyBehavior>
                 <NavLink title="Go to landing page of site">Home</NavLink>

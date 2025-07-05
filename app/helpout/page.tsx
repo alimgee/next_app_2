@@ -1,7 +1,6 @@
 
-'use client';
-
 import React from 'react';
+import { Metadata } from 'next';
 import Intro from '@/app/home/Intro';
 import {
     Container,
@@ -9,6 +8,11 @@ import {
     Col,
 } from 'reactstrap';
 import { Items } from '@/app/helpout/Organisations';
+
+export const metadata: Metadata = {
+  title: "Help Out - Molly Rose",
+  description: "Discover how you can help support childhood cancer awareness and charities that assist families affected by childhood cancer.",
+};
 
 export default function HelpPage() {
 
